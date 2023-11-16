@@ -1,9 +1,9 @@
 {
   "author": {
-    "name": "Ajay Bhatia"
+    "name": "Rejjak Ali"
   },
   "bugs": {
-    "url": "https://github.com/ajaybhatia/react-native-audiowaveform/issues"
+    "url": "https://github.com/cisplRejjak/react-native-audiowaveform/issues"
   },
   "dependencies": {},
   "description": "Audio Waveform visualization and sound renderization for React Native",
@@ -30,7 +30,7 @@
     "react-dom": "^16.0.0-alpha.12",
     "react-native-debugger-utils": "1.0.0"
   },
-  "homepage": "https://github.com/ajaybhatia/react-native-audiowaveform#readme",
+  "homepage": "https://github.com/cisplRejjak/react-native-audiowaveform#readme",
   "keywords": [
     "react-native",
     "audio",
@@ -39,14 +39,14 @@
   ],
   "license": "WTFPL",
   "main": "index.js",
-  "name": "@ajaybhatia/react-native-audiowaveform",
+  "name": "@cisplRejjak/react-native-audiowaveform",
   "peerDependencies": {
     "react-native": "^0.54.0"
   },
   "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ajaybhatia/react-native-audiowaveform.git"
+    "url": "git+https://github.com/cisplRejjak/react-native-audiowaveform.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
