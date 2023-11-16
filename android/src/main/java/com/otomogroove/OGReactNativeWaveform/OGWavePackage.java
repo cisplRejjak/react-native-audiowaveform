@@ -25,7 +25,7 @@ public class OGWavePackage implements ReactPackage {
         return modules;
     }
 
-    @Override
+    //depcricated on 0.47 or later
     public List<Class<? extends JavaScriptModule>> createJSModules() {
         return Collections.emptyList();
     }
