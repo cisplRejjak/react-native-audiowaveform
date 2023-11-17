@@ -1,7 +1,7 @@
 package com.otomogroove.OGReactNativeWaveform;
+
 import androidx.annotation.Nullable;
 import android.util.Log;
-
 
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.Callback;
@@ -15,9 +15,9 @@ import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
 import com.ringdroid.WaveformView;
+import com.ringdroid.soundfile.SoundFile;
 
-
-import static com.facebook.react.common.ReactConstants.TAG;
+import java.io.File;
 
 /**
  * Created by juanjimenez on 13/01/2017.
@@ -25,13 +25,8 @@ import static com.facebook.react.common.ReactConstants.TAG;
 
 public class OGWaveManager extends SimpleViewManager<OGWaveView> implements LifecycleEventListener,WaveformView.WaveformListener {
 
-
-
-
-    private Callback onPressCallback;
     public static final String REACT_CLASS = "OGWave";
     private ReactContext mcontext;
-    //private WaveformView mWaveView;
 
     @Override
     public String getName() {
@@ -39,20 +34,28 @@ public class OGWaveManager extends SimpleViewManager<OGWaveView> implements Life
         return REACT_CLASS;
     }
 
-
-
     @Override
     public OGWaveView createViewInstance(ThemedReactContext context) {
         context.addLifecycleEventListener(this);
         mcontext = context;
 
-       // deleteFiles(Environment.getExternalStorageDirectory().toString(),"mp3");
         OGWaveView mWaveView = new OGWaveView(context);
-
         mWaveView.setWaveformListener(this);
 
-
         return mWaveView;
+    }
+
+    @Override
+    public void onDropViewInstance(OGWaveView view) {
+        super.onDropViewInstance(view);
+
+        SoundFile soundFile = view.getSoundFile();
+
+        if (soundFile != null) {
+            File file = new File(soundFile.getInputFile().getPath());
+            boolean deleted = file.delete();
+            Log.w("XSXGOT", "File deleted: " + deleted);
+        }
     }
 
     @Override
@@ -107,6 +110,11 @@ public class OGWaveManager extends SimpleViewManager<OGWaveView> implements Life
 
             view.onPlay(play);
 
+    }
+
+    @ReactProp(name = "earpiece", defaultBoolean = false)
+    public void setEarpiece(OGWaveView view, boolean earpiece) {
+        view.setEarpiece(earpiece);
     }
 
 
@@ -200,4 +208,3 @@ public class OGWaveManager extends SimpleViewManager<OGWaveView> implements Life
 
     }
 }
-
