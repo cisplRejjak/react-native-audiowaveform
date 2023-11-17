@@ -39,7 +39,7 @@
   ],
   "license": "WTFPL",
   "main": "index.js",
-  "name": "@cisplRejjak/react-native-audiowaveform",
+  "name": "@rejjak/react-native-audiowaveform",
   "peerDependencies": {
     "react-native": "^0.54.0"
   },
