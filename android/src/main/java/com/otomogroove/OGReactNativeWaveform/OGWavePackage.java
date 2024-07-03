@@ -22,10 +22,7 @@ public class OGWavePackage implements ReactPackage {
     }
 
     @Override
-    public List<ViewManager> createViewManagers(
-            ReactApplicationContext reactContext) {
-        return Collections.singletonList(
-                new OGWaveManager()
-        );
+    public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
+        return Collections.<ViewManager>singletonList(new OGWaveManager());
     }
 }
